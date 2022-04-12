@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://code/GameLabel.cs" type="Script" id=1]
+[ext_resource path="res://code/Game.cs" type="Script" id=2]
+[ext_resource path="res://code/CodeLabel.cs" type="Script" id=3]
+[ext_resource path="res://Retro Gaming.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/Clock.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Retro Gaming.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = SubResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 21
+
+[sub_resource type="Theme" id=13]
+default_font = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=11]
+default_font = SubResource( 10 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 22
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=15]
+default_font = SubResource( 14 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="GameLabel" type="Label" parent="."]
+margin_left = 269.0
+margin_top = 537.0
+margin_right = 790.0
+margin_bottom = 581.0
+theme = SubResource( 3 )
+text = "loremipsumdolorlolwowowo"
+clip_text = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 900.0
+margin_top = 55.0
+margin_right = 900.0
+margin_bottom = 55.0
+theme = SubResource( 13 )
+custom_colors/member_variable_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_colors/completion_font_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CodeLabel" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 112.0
+margin_right = 1011.0
+margin_bottom = 512.0
+theme = SubResource( 9 )
+text = "using System;
+
+class Lorem{
+	private Ipsum dolor;
+	...
+	...
+	...
+	...
+	...
+	...
+	...
+}"
+max_lines_visible = 10
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clock" parent="." instance=ExtResource( 6 )]
+margin_left = 397.0
+margin_top = 15.0
+margin_right = 450.0
+margin_bottom = 36.0
+rect_scale = Vector2( 5, 5 )
+custom_colors/font_color = Color( 0.913725, 0.376471, 0.376471, 1 )
+
+[node name="NextToGameLabel" type="Label" parent="."]
+margin_left = 246.0
+margin_top = 537.0
+margin_right = 403.0
+margin_bottom = 659.0
+theme = SubResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 29.0
+margin_top = 16.0
+margin_right = 189.0
+margin_bottom = 37.0
+theme = SubResource( 15 )
+custom_colors/font_color = Color( 1, 0.760784, 0.309804, 1 )
+text = "Kewlness Score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}

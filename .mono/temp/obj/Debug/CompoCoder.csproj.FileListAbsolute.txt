@@ -1,0 +1,9 @@
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\bin\Debug\CompoCoder.dll
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\bin\Debug\CompoCoder.pdb
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\obj\Debug\CompoCoder.csproj.AssemblyReference.cache
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\obj\Debug\CompoCoder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\obj\Debug\CompoCoder.AssemblyInfoInputs.cache
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\obj\Debug\CompoCoder.AssemblyInfo.cs
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\obj\Debug\CompoCoder.csproj.CoreCompileInputs.cache
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\obj\Debug\CompoCoder.dll
+C:\Users\CIG Group\Documents\GodotProjects\CompoCoder\.mono\temp\obj\Debug\CompoCoder.pdb

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=1]
+[ext_resource path="res://graphics/enter.png" type="Texture" id=2]
+[ext_resource path="res://graphics/left_hand.png" type="Texture" id=3]
+[ext_resource path="res://graphics/right_hand.png" type="Texture" id=4]
+[ext_resource path="res://graphics/computer.png" type="Texture" id=5]
+[ext_resource path="res://code/Desktop.cs" type="Script" id=6]
+
+[node name="Desktop" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Computer" type="Sprite" parent="."]
+position = Vector2( 514, 302 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="Enter" type="Sprite" parent="."]
+position = Vector2( 130, 491 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="LeftHand" type="Sprite" parent="."]
+position = Vector2( -118, 76 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="RightHand" type="Sprite" parent="."]
+position = Vector2( 847, 571 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+
+[node name="Game" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 61 )
+scale = Vector2( 0.5, 0.5 )

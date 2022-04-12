@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://code/Clock.cs" type="Script" id=1]
+[ext_resource path="res://Retro Gaming.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="Clock" type="Label"]
+margin_left = -27.0
+margin_top = -12.0
+margin_right = 26.0
+margin_bottom = 9.0
+theme = SubResource( 2 )
+text = "48:00"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
