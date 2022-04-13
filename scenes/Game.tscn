@@ -47,9 +47,9 @@ default_font = SubResource( 14 )
 script = ExtResource( 2 )
 
 [node name="GameLabel" type="Label" parent="."]
-margin_left = 269.0
+margin_left = 264.0
 margin_top = 537.0
-margin_right = 790.0
+margin_right = 785.0
 margin_bottom = 581.0
 theme = SubResource( 3 )
 text = "loremipsumdolorlolwowowo"
@@ -74,11 +74,13 @@ __meta__ = {
 }
 
 [node name="CodeLabel" type="Label" parent="."]
+anchor_bottom = 0.077
 margin_left = 11.0
-margin_top = 112.0
+margin_top = 102.0
 margin_right = 1011.0
-margin_bottom = 512.0
+margin_bottom = 539.0
 theme = SubResource( 9 )
+custom_colors/font_color = Color( 0.772549, 0.772549, 0.772549, 1 )
 text = "using System;
 
 class Lorem{
