@@ -3,11 +3,11 @@ using System;
 
 public class Clock : Label {
     [Signal]
-    public delegate void Finished();
+    public delegate void finished();
 
     public int minutesPassed = 2880; // 48*60
     public bool countDown = false; // should the clock count down?
-    private float tickSpeed = 0.0625f; // 1/16
+    private float tickSpeed = 0.0002f;//0.0625f; // 1/16
     public override void _Ready() {
         updateText(minutesPassed);
     }
@@ -22,8 +22,10 @@ public class Clock : Label {
                 minutesPassed--;
                 deltaCount = 0;
             }
-            if (minutesPassed < 0)
-                EmitSignal(nameof(Finished));
+            if (minutesPassed < 0){
+                EmitSignal(nameof(finished));
+                countDown = false;
+            }
         }
         
     }

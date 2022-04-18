@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Retro Gaming.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://code/Bluescreen.cs" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.169399 )
+colors = PoolColorArray( 0, 0, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 97, 300 ), Vector2( 97, 300 ), Vector2( 97, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+
+[node name="Bluescreen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = SubResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+
+[node name="Title" type="Label" parent="."]
+margin_left = 97.0
+margin_top = 300.0
+margin_right = 951.0
+margin_bottom = 362.001
+theme = SubResource( 4 )
+text = "GET BLUESCREENED!!!!11!1!11!1!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+anims/start = SubResource( 5 )
+
+[node name="Stats" type="Label" parent="."]
+margin_left = 370.0
+margin_top = 176.0
+margin_right = 653.0
+margin_bottom = 393.0
+theme = SubResource( 7 )
+text = "Lines typed: ...
+Accuracy: ...
+
+
+SCORE: ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}

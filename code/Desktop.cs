@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 
 class Desktop : Node2D{
 
     private Game game;
+    private Bluescreen blueScreen;
     private Sprite computer;
     private AnimatedSprite enter;
     private Sprite rightHand;
@@ -16,9 +18,14 @@ class Desktop : Node2D{
     private Vector2 LEFTHAND_MAXIMUM_POSITION;
     private Random randomizer;
 
+    // screen positions
+    private Vector2 activeScreenPosition;
+    private Vector2 passiveScreenPosition;
+
     // when loaded
     public override void _Ready() {
         game = GetNode<Game>("Game");
+        blueScreen = GetNode<Bluescreen>("Bluescreen");
         computer = GetNode<Sprite>("Computer");
         enter = GetNode<AnimatedSprite>("Enter");
         rightHand = GetNode<Sprite>("RightHand");
@@ -31,6 +38,11 @@ class Desktop : Node2D{
         leftHandSpeed = 1000.0f;
 
         game.Connect("char_pressed", this, nameof(RightHandClick));
+        game.Connect("finished", this, nameof(GameFinished));
+
+        // some parameters to store the screen positions
+        activeScreenPosition = game.Position;
+        passiveScreenPosition = blueScreen.Position;
         randomizer = new Random();
     }
     // happens every Frame
@@ -80,5 +92,14 @@ class Desktop : Node2D{
         double angle = Math.Atan2(y, x);
         
         node.Position += new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * random * speed * delta;
+    }
+
+    // when the game is finished
+    private void GameFinished(){
+        // switch screen positions
+        game.Position = passiveScreenPosition;
+        blueScreen.Position = activeScreenPosition;
+        
+        blueScreen.SetStats(game.GetStats());
     }
 }

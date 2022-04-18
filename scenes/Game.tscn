@@ -37,7 +37,7 @@ font_data = ExtResource( 5 )
 default_font = SubResource( 10 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 22
+size = 32
 font_data = ExtResource( 5 )
 
 [sub_resource type="Theme" id=15]
@@ -100,10 +100,10 @@ __meta__ = {
 }
 
 [node name="Clock" parent="." instance=ExtResource( 6 )]
-margin_left = 397.0
-margin_top = 15.0
-margin_right = 450.0
-margin_bottom = 36.0
+margin_left = 693.0
+margin_top = 3.0
+margin_right = 746.0
+margin_bottom = 24.0
 rect_scale = Vector2( 5, 5 )
 custom_colors/font_color = Color( 0.913725, 0.376471, 0.376471, 1 )
 
@@ -120,10 +120,10 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="."]
-margin_left = 29.0
-margin_top = 16.0
-margin_right = 189.0
-margin_bottom = 37.0
+margin_left = 102.0
+margin_top = 8.0
+margin_right = 423.0
+margin_bottom = 49.0
 theme = SubResource( 15 )
 custom_colors/font_color = Color( 1, 0.760784, 0.309804, 1 )
 text = "Kewlness Score:"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/enter.png" type="Texture" id=2]
@@ -6,21 +6,22 @@
 [ext_resource path="res://graphics/right_hand.png" type="Texture" id=4]
 [ext_resource path="res://graphics/computer.png" type="Texture" id=5]
 [ext_resource path="res://code/Desktop.cs" type="Script" id=6]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 50, 0, 50, 39 )
+[ext_resource path="res://scenes/Bluescreen.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 50, 39 )
 
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 50, 0, 50, 39 )
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 2 ), SubResource( 2 ), SubResource( 2 ), SubResource( 1 ), SubResource( 2 ) ],
 "loop": false,
 "name": "press",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [node name="Desktop" type="Node2D"]
@@ -47,6 +48,10 @@ texture = ExtResource( 3 )
 position = Vector2( 624, 618 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
+
+[node name="Bluescreen" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1095, 32 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
 position = Vector2( 290, 40 )

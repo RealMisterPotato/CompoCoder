@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 
 class Game : Node2D{
 
     [Signal]
     public delegate void char_pressed();
+    [Signal]
+    public delegate void finished();
 
 
     private Color COLOR_GREEN = new Color(0, 0.75f, 0.1f);
@@ -18,11 +21,14 @@ class Game : Node2D{
     private TextEdit textbox;
     private AnimatedSprite space;
 
+    private int totalClicks = 0;
+    private int correctClicks = 0;
+    private int linesTyped = 0;
     private int score = 0;
     private float scoreMultiplier = 1.0f;
 
+    // when loaded
     public override void _Ready(){
-        // when loaded
         gameLabel = GetNode<GameLabel>("GameLabel");
         nextToGameLabel = GetNode<Label>("NextToGameLabel");
         codeLabel = GetNode<CodeLabel>("CodeLabel");
@@ -31,13 +37,13 @@ class Game : Node2D{
         textbox = GetNode<TextEdit>("TextEdit");
 
         textbox.Connect("text_changed", this, "TextboxChanged");
-        clock.countDown = true;
+        clock.Connect("finished", this, nameof(OnClockFinished));
 
         codeLabel.Text = "";
     }
 
+    // called every frame
     public override void _Process(float delta){
-        // called every frame
         // delta -> time elapsed since last frame
 
         textbox.GrabFocus(); // textbox is always active
@@ -48,8 +54,10 @@ class Game : Node2D{
         scoreLabel.Text = $"Kewlness Score: {score}{System.Environment.NewLine}Multiplier: {(int)scoreMultiplier}";
     }
 
+    // basically when a character is pressed
     private void TextboxChanged(){
-        // basically when a character is pressed
+        clock.countDown = true;
+        totalClicks++;
 
         // grab character typed
         char c = textbox.Text[0];
@@ -62,13 +70,16 @@ class Game : Node2D{
         if (gameLabel.Feed(c)){ // is the character correct?
             score += 20 * (int)scoreMultiplier;
             scoreMultiplier += 0.2f;
+            correctClicks++;
         }else{
             score -= 10 * (int)scoreMultiplier;
             scoreMultiplier = 1.0f;
         }
     }
+
+    // enter pressed
     private void Enter(){
-        // enter pressed
+        // totalClicks already increased in "TextboxChanged"
 
         if (gameLabel.Text.Empty()){
             // adds the line to the code label
@@ -78,15 +89,30 @@ class Game : Node2D{
             
             score += 50*(int)scoreMultiplier;
             scoreMultiplier += 1.2f;
+            correctClicks++;
+            linesTyped++;
         }else{
             int charactersNotTyped = gameLabel.Text.Length;
             score -= 20*(int)scoreMultiplier;
             scoreMultiplier = 1.0f;
         }
     }
+    
+    // when the clock is done.
+    private void OnClockFinished(){
+        EmitSignal(nameof(finished));
+    }
+    // get the stats
+    public Dictionary<String, float> GetStats(){
+        Dictionary<String, float> stats = new Dictionary<String, float>();
+        stats.Add("score", score);
+        stats.Add("accuracy", (float)correctClicks/(float)totalClicks);
+        stats.Add("lines typed", linesTyped);
+        return stats;
+    }
 
+    // returns the sourcecode from a file
     public static string LoadSourceCodeString(string path){
-        // returns the sourcecode from a file
         string str;
         try{ str = System.IO.File.ReadAllText(path);}
         catch(Exception e){GD.Print(e); str = "exception thrown!"; }
