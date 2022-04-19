@@ -27,6 +27,8 @@ class Game : Node2D{
     private int score = 0;
     private float scoreMultiplier = 1.0f;
 
+    public bool isActive = true;
+
     // when loaded
     public override void _Ready(){
         gameLabel = GetNode<GameLabel>("GameLabel");
@@ -56,25 +58,25 @@ class Game : Node2D{
 
     // basically when a character is pressed
     private void TextboxChanged(){
-        clock.countDown = true;
-        totalClicks++;
+        if (isActive){
+            clock.countDown = true;
+            totalClicks++;
 
-        // grab character typed
-        char c = textbox.Text[0];
-        textbox.Text = string.Empty;
-        if ((int)c == 10) // it's enter
+            // grab character typed
+            char c = textbox.Text[0];
+            textbox.Text = string.Empty;
+            if ((int)c == 10) // it's enter
             return;
-
-        EmitSignal(nameof(char_pressed));
-
-        if (gameLabel.Feed(c)){ // is the character correct?
-            score += 20 * (int)scoreMultiplier;
-            scoreMultiplier += 0.2f;
-            correctClicks++;
-        }else{
-            score -= 10 * (int)scoreMultiplier;
-            scoreMultiplier = 1.0f;
+            if (gameLabel.Feed(c)){ // is the character correct?
+                score += 20 * (int)scoreMultiplier;
+                scoreMultiplier += 0.2f;
+                correctClicks++;
+            }else{
+                score -= 10 * (int)scoreMultiplier;
+                scoreMultiplier = 1.0f;
+            }
         }
+        EmitSignal(nameof(char_pressed));
     }
 
     // enter pressed
@@ -101,6 +103,7 @@ class Game : Node2D{
     // when the clock is done.
     private void OnClockFinished(){
         EmitSignal(nameof(finished));
+        isActive = false;
     }
     // get the stats
     public Dictionary<String, float> GetStats(){
@@ -117,6 +120,17 @@ class Game : Node2D{
         try{ str = System.IO.File.ReadAllText(path);}
         catch(Exception e){GD.Print(e); str = "exception thrown!"; }
         return str;
+    }
+    // restart the game
+    public void Restart(){
+        totalClicks = 0;
+        correctClicks = 0;
+        linesTyped = 0;
+        score = 0;
+        scoreMultiplier = 1.0f;
+        isActive = true;
+        codeLabel.Restart();
+        gameLabel.Restart();
     }
 
     public GameLabel GetGameLabel(){ return gameLabel; }

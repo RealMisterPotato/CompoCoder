@@ -4,7 +4,7 @@ using Godot;
 
 class Desktop : Node2D{
 
-    private Game game;
+    private GameNew game;
     private Bluescreen blueScreen;
     private Sprite computer;
     private AnimatedSprite enter;
@@ -24,7 +24,7 @@ class Desktop : Node2D{
 
     // when loaded
     public override void _Ready() {
-        game = GetNode<Game>("Game");
+        game = GetNode<GameNew>("Game");
         blueScreen = GetNode<Bluescreen>("Bluescreen");
         computer = GetNode<Sprite>("Computer");
         enter = GetNode<AnimatedSprite>("Enter");
@@ -72,12 +72,16 @@ class Desktop : Node2D{
     private Vector2[] chargingBounds = {new Vector2(-180, 81), new Vector2(-84, 371)};
     private void LeftHandCharge(){
         float x = randomizer.Next((int)chargingBounds[0].x, (int)chargingBounds[1].x);
-        float y = chargingBounds[1].y - (chargingBounds[1].y - chargingBounds[0].y)*(1.0f * game.GetGameLabel().PercentTyped());
+        float y;
+        if (game != null)
+            y = chargingBounds[1].y - (chargingBounds[1].y - chargingBounds[0].y)*(game.GetGameLabel().PercentTyped());
+        else
+            y = chargingBounds[1].y - (chargingBounds[1].y - chargingBounds[0].y)*100.0f;
         leftHandDesiredPosition = new Vector2(x, y);
     }
     // stuff to do when pressing enter
     private void Enter(){
-        leftHandDesiredPosition = new Vector2(leftHand.Position.x, 460);
+        leftHand.Position = new Vector2((float.IsNaN(leftHand.Position.x))?0.0f:leftHand.Position.x, 460);
         enter.Frame = 0;
         enter.Play();
     }
@@ -85,7 +89,7 @@ class Desktop : Node2D{
         // move a node to a target position
 
         // add some randomness
-        float random = (float)randomizer.NextDouble() * 2;
+        float random = (float)randomizer.NextDouble() * 0.8f;
         
         double y = position.y - node.Position.y;
         double x = position.x - node.Position.x;
@@ -101,5 +105,11 @@ class Desktop : Node2D{
         blueScreen.Position = activeScreenPosition;
         
         blueScreen.SetStats(game.GetStats());
+    }
+    // restart the game
+    public void RestartGame(){
+        game.Position = activeScreenPosition;
+        blueScreen.Position = passiveScreenPosition;
+        game.Restart();
     }
 }

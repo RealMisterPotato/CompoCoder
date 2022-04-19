@@ -28,4 +28,9 @@ class CodeLabel : Label{
 
         lines[MAX_LINES-1] = str;
     }
+
+    public void Restart(){
+        lines = new string[MAX_LINES];
+        RefreshText();
+    }
 }

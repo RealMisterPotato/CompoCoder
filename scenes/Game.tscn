@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://code/GameLabel.cs" type="Script" id=1]
-[ext_resource path="res://code/Game.cs" type="Script" id=2]
+[ext_resource path="res://code/GameNew.cs" type="Script" id=2]
 [ext_resource path="res://code/CodeLabel.cs" type="Script" id=3]
 [ext_resource path="res://Retro Gaming.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/Clock.tscn" type="PackedScene" id=6]

@@ -7,7 +7,7 @@ public class Clock : Label {
 
     public int minutesPassed = 2880; // 48*60
     public bool countDown = false; // should the clock count down?
-    private float tickSpeed = 0.0002f;//0.0625f; // 1/16
+    private float tickSpeed = 0.0625f; // 1/16
     public override void _Ready() {
         updateText(minutesPassed);
     }
@@ -25,6 +25,7 @@ public class Clock : Label {
             if (minutesPassed < 0){
                 EmitSignal(nameof(finished));
                 countDown = false;
+                minutesPassed = 0; // so the clock would not emmit anymore signals
             }
         }
         
@@ -39,7 +40,11 @@ public class Clock : Label {
         Text = $"{hoursZero + hours}:{minutesZero + minutes}"; 
     }
 
-    public void Dance(){
-        // do a cool animation
+    // restart
+    public void Restart(){
+        minutesPassed = 2880; // 48*60
+        countDown = false; // should the clock count down?
+        tickSpeed = 0.0625f; // 1/16
+
     }
 }

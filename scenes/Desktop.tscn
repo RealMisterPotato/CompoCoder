@@ -8,20 +8,20 @@
 [ext_resource path="res://code/Desktop.cs" type="Script" id=6]
 [ext_resource path="res://scenes/Bluescreen.tscn" type="PackedScene" id=7]
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 50, 39 )
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 50, 0, 50, 39 )
 
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 50, 39 )
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 2 ), SubResource( 2 ), SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": false,
 "name": "press",
-"speed": 10.0
+"speed": 5.0
 } ]
 
 [node name="Desktop" type="Node2D"]
