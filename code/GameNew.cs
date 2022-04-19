@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Godot;
 
-class GameNew : Node2D{
+class GameNew : GameScreen{
 
     [Signal]
     public delegate void char_pressed();
@@ -26,7 +26,6 @@ class GameNew : Node2D{
     private int score = 0;
     private float scoreMultiplier = 1.0f;
 
-    public bool isActive = true;
 
     // when loaded
     public override void _Ready(){
@@ -135,4 +134,13 @@ class GameNew : Node2D{
     }
 
     public GameLabel GetGameLabel(){ return gameLabel; }
+    // gets the "minutesPassed" value from the clock
+    public int GetMinutesPassed() { return clock.minutesPassed;}
+    // gets the percentage of time passed relative to 2880 (48 * 60)
+    public float GetPercentageOfTimePassed(){
+        float dividend = GetMinutesPassed();
+        float divisor = 2880;
+        float p = dividend/divisor;
+        return p;
+    }
 }

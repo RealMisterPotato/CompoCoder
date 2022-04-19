@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using Godot;
 
-class Bluescreen : Node2D{
+class Bluescreen : GameScreen{
     private Label title;
     private bool titleBlink = false; // should the title blink?
     private Label stats;
     private AnimationPlayer animation;
-    private bool interactable = false;
+    
     // when loaded
     public override void _Ready() {
         title = GetNode<Label>("Title");
@@ -28,8 +28,10 @@ class Bluescreen : Node2D{
             }
         }
         // on enter change go to menu(?)
-        if (interactable && Input.IsActionJustPressed("enter"))
+        if (isActive && Input.IsActionJustPressed("enter")){
+            isActive = false;
             ((Desktop)GetParent()).RestartGame();
+        }
 
     }
     // set the stats and restart the animation
@@ -43,11 +45,11 @@ class Bluescreen : Node2D{
         // animation stuff
         animation.Play("start");
 
-        interactable = false;
+        isActive = false;
     }
     // when the AnimationPlayer finished the animation
     private void AnimationFinished(String animationName){
         titleBlink = true;
-        interactable = true;
+        isActive = true;
     }
 }

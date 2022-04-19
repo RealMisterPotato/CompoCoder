@@ -93,6 +93,7 @@ class Lorem{
 	...
 	...
 }"
+clip_text = true
 max_lines_visible = 10
 script = ExtResource( 3 )
 __meta__ = {

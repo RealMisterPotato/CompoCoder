@@ -44,7 +44,11 @@ class GameLabel : Label{
         return false;
     }
     // gets the percent of the characters typed
-    public float PercentTyped(){ return 1.0f-((float)this.Text.Length / (float)lines[activeLine].Length); }
+    public float PercentTyped(){ 
+        float dividend = (float)this.Text.Length;
+        float divisor = ((float)lines[activeLine].Length == 0)?1:(float)lines[activeLine].Length; 
+        return 1.0f - (dividend/divisor);
+    }
 
     // restart
     public void Restart(){
