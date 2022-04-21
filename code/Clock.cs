@@ -7,7 +7,7 @@ public class Clock : Label {
 
     public int minutesPassed = 2880; // 48*60
     public bool countDown = false; // should the clock count down?
-    private const float tickSpeed = 0.00004f;//0.0625f; // 1/16
+    private const float tickSpeed = 0.0625f; // 1/16
     public override void _Ready() {
         updateText(minutesPassed);
     }

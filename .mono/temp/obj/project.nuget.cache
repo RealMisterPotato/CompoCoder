@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "SwR7V/sCWjogILXKTmVuKtZbX0ph5qvWnQOJPpOFpkrIz2qy+7smL5ZTaoneNvsUQ07vZauSz+kIFtiuMbCU6A==",
+  "dgSpecHash": "9UnKJjtmEq4jO8E6MJ80Qu6N1/b30PlWADc68NHqtF1XejTDo1rFLrA+zTXamS9QDnRi8DVoUhdAQLGNGmfeQw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zangi\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj",
+  "projectFilePath": "C:\\Users\\CIG Group\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Zangi\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "C:\\Users\\Zangi\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+    "C:\\Users\\CIG Group\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\CIG Group\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.0\\microsoft.netframework.referenceassemblies.net472.1.0.0.nupkg.sha512"
   ],
   "logs": []
 }

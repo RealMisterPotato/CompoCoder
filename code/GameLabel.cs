@@ -19,11 +19,11 @@ class GameLabel : Label{
     public void LoadSourceCode(string path){
         // load source code from path
         String sourceString = GameNew.LoadSourceCodeString(path); 
-        lines = sourceString.Split(System.Environment.NewLine);
+        lines = sourceString.Split(new string[]{"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
     }
 
     public int LineCount(){ return (lines != null)?lines.Length:0;}
-    public String GetCurrentLineString(){ return lines[activeLine]; }
+    public String GetCurrentLineString(){GD.Print(lines[activeLine]); return lines[activeLine];  }
     public void UpdateToLine(int line){
         if (lines == null) return;
         activeLine = line % LineCount(); // so the lines will cycle if reached "the end"
@@ -52,9 +52,9 @@ class GameLabel : Label{
 
     // restart
     public void Restart(){
-    newLineSpots = new List<int>(); // spots to put a new line so the code will look the same
-    activeLine = 0;
-    LoadSourceCode("code/GameLabel.cs");
-    if (lines != null && lines.Length >= 1) UpdateToLine(0);
+        newLineSpots = new List<int>(); // spots to put a new line so the code will look the same
+        activeLine = 0;
+        LoadSourceCode("code/GameLabel.cs");
+        if (lines != null && lines.Length > 0) UpdateToLine(0);
     }
 }

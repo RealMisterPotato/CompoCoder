@@ -103,8 +103,6 @@ class Desktop : Node2D{
 			node.Position = new Vector2(0, node.Position.y);
 		if (float.IsNaN(node.Position.y))
 			node.Position = new Vector2(node.Position.x, 0);
-
-		GD.Print(node.Position);
 	}
 
 	// when the game is finished

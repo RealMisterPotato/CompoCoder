@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zangi\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj": {}
+    "C:\\Users\\CIG Group\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zangi\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj": {
+    "C:\\Users\\CIG Group\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zangi\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj",
+        "projectUniqueName": "C:\\Users\\CIG Group\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj",
         "projectName": "CompoCoder",
-        "projectPath": "C:\\Users\\Zangi\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj",
-        "packagesPath": "C:\\Users\\Zangi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zangi\\Documents\\GodotProjects\\CompoCoder\\.mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\CIG Group\\Documents\\GodotProjects\\CompoCoder\\CompoCoder.csproj",
+        "packagesPath": "C:\\Users\\CIG Group\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CIG Group\\Documents\\GodotProjects\\CompoCoder\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Zangi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\CIG Group\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -41,11 +41,11 @@
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.0.2, )",
+              "version": "[1.0.0, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
